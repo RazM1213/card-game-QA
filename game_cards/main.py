@@ -28,3 +28,15 @@ for i in range(1, 11):
         game.player2.cards.append(player1_card)
         game.player2.cards.append(player2_card)
         print(f"{game.player2.name} WINS !\n")
+
+# GAME RESULTS:
+winner = game.get_winner()
+print("=====FINAL RESULTS=====\n")
+if winner == game.player1:
+    print(f"{game.player1.name} WON THE GAME with {len(game.player1.cards)} cards !")
+    print(f"{game.player1.cards}")
+elif winner == game.player2:
+    print(f"{game.player2.name} WON THE GAME with {len(game.player2.cards)} cards !")
+    print(f"{game.player2.cards}")
+else:
+    print("IT'S A TIE !")
