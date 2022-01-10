@@ -15,3 +15,8 @@ class Player:
         self.name = name
         self.num_of_cards = num_of_cards
         self.cards = []
+
+    # return the name of the player
+    def __str__(self):
+        return f"{self.name}"
+
