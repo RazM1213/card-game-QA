@@ -42,3 +42,6 @@ class Card:
             4: "Club"
         }
         return f"{value_dict[self.value]} Of {suit_dict[self.suit]}"
+
+    def __repr__(self):
+        return self.get_name()
