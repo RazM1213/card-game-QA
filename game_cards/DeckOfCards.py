@@ -10,6 +10,9 @@ class DeckOfCards:
             for value in range(1, 14):
                 self.deck.append(Card(value, suit))
 
+    def __repr__(self):
+        return f"{self.deck}"
+
     # A method that shuffles the cards randomly in the cards deck
     def card_shuffle(self):
         """shuffle the cards"""
