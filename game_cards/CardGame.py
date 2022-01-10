@@ -33,3 +33,12 @@ class CardGame:
             self.start_game = False
         else:
             print("Error, game already started, can't hand out cards again!")
+
+    # return the winner player of the game
+    def get_winner(self):
+        """check which player has more cards,the player with the most cards win the game"""
+        if len(self.player1.cards) > len(self.player2.cards):
+            return self.player1
+        elif len(self.player1.cards) < len(self.player2.cards):
+            return self.player2
+        return None
