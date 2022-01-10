@@ -45,3 +45,12 @@ class Player:
         self.cards.remove(card)
         return card
 
+    # Used to add a card to Player's hand:
+    def add_card(self, card: Card):
+        """
+        This method gets card object as a parameter and adds it to player's cards list
+        """
+        if type(card) != Card:
+            raise TypeError("Only Card type can be added to the cards list")
+        self.cards.append(card)
+
