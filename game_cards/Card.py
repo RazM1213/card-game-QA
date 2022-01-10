@@ -45,3 +45,21 @@ class Card:
 
     def __repr__(self):
         return self.get_name()
+
+    # This method used to compare two cards objects:
+    def __gt__(self, card):
+        """
+        Cards are compared by their value - higher value = stronger card
+        If the compared cards share the same value - the comparison will be based on their suits
+        Ace is the strongest card in the game - it's value is the highest amongst cards
+        """
+        if type(card) != Card:
+            raise TypeError("card type must be of Card !")
+        if self.value > card.value != 1:
+            return True
+        elif self.value == card.value:
+            if self.suit > card.suit:
+                return True
+        elif self.value == 1 and card.value != 1:
+            return True
+        return False
