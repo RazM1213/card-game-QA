@@ -34,3 +34,14 @@ class Player:
             card = deck_of_cards.deal_one()
             self.cards.append(card)
 
+    # Used to take card from Player's cards. Moreover, it removes the card from the player's hand
+    def get_card(self):
+        """
+        This method returns a random card out of player's cards
+        """
+        if len(self.cards) == 0:
+            raise AttributeError("There's no cards to pick")
+        card = random.choice(self.cards)
+        self.cards.remove(card)
+        return card
+
