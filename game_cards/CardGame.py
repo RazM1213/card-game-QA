@@ -14,7 +14,7 @@ class CardGame:
         if type(num_of_cards) != int:
             raise TypeError("Number of cards must be an integer!S")
         if num_of_cards < 10 or num_of_cards > 26:
-            raise ValueError("Number of cards must be in range 10-26")
+            num_of_cards = 26
         self.player1 = Player(player1, num_of_cards)
         self.player2 = Player(player2, num_of_cards)
         self.num_of_cards = num_of_cards
