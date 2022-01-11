@@ -53,8 +53,3 @@ class TestCard(TestCase):
     def test__gt__invalid_1(self):
         with self.assertRaises(TypeError):
             self.ace_of_diamond.__gt__(5)
-
-    # Checks that ValueError is raised when comparing a card to itself
-    def test__gt__invalid_2(self):
-        with self.assertRaises(ValueError):
-            self.king_of_club.__gt__(self.king_of_club)
