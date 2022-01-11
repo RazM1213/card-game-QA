@@ -50,6 +50,12 @@ class TestCard(TestCase):
         self.assertFalse(self.ten_of_heart > self.king_of_club)  # False expression
 
     # Checks that TypeError is raised when comparing Card type object to other type object
-    def test__gt__invalid_1(self):
+    def test__gt__invalid(self):
         with self.assertRaises(TypeError):
             self.ace_of_diamond.__gt__(5)
+
+    # Checks __eq__ method basic behaviour
+    def test__eq__valid(self):
+        self.card = Card(1, 1)
+        self.assertTrue(self.card == self.ace_of_diamond)  # The same card
+        self.assertFalse(self.ace_of_club == self.ten_of_heart)  # Not the same card
