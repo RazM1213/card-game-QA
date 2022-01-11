@@ -11,13 +11,14 @@ class TestDeckOfCards(TestCase):
     # Test the __init__ method, that the list contains 52 items, and that the items are not the same card
     def test__init__valid(self):
         self.assertTrue(len(self.deck_of_cards.deck) == 52)
-        card_index = 0
         for suit in range(1, 5):
             for value in range(1, 14):
                 card = Card(value, suit)
-                self.assertEqual(card.value, self.deck_of_cards.deck[card_index].value)
-                self.assertEqual(card.suit, self.deck_of_cards.deck[card_index].suit)
-                card_index += 1
+                exist = False
+                for item in self.deck_of_cards.deck:
+                    if item.get_name() == card.get_name() and exist is False:
+                        exist = True
+                self.assertTrue(exist)
 
     # Test the valid option of the card shuffle method
     def test_card_shuffle_valid(self):
@@ -31,7 +32,6 @@ class TestDeckOfCards(TestCase):
         self.deck_of_cards.deck.append(Card(1, 2))
         DeckOfCards.card_shuffle(self.deck_of_cards)
         self.assertTrue(self.deck_of_cards)
-        print(self.deck_of_cards.deck)
 
     # Test an invalid shuffle for deck (less than 2 cards)
     def test_card_shuffle_invalid(self):
