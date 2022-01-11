@@ -53,5 +53,6 @@ class Player:
         """
         if type(card) != Card:
             raise TypeError("Only Card type can be added to the cards list")
-        self.cards.append(card)
+        if card not in self.cards:
+            self.cards.append(card)
 

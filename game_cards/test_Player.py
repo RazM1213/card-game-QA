@@ -83,6 +83,7 @@ class TestPlayer(TestCase):
     def test_add_card_valid(self):
         card = Card(1, 4)
         self.player1.add_card(card)
+        self.player1.add_card(card)  # Trying to add the same card again
         self.assertEqual(self.player1.cards, [card])
 
     # Checks that add_card raises TypeError if it gets parameter of other type than Card
