@@ -46,6 +46,12 @@ class Card:
     def __repr__(self):
         return self.get_name()
 
+    # This method instructs python how to evaluate 2 different card objects
+    def __eq__(self, other):
+        if self.value == other.value and self.suit == other.suit:
+            return True
+        return False
+
     # This method used to compare two cards objects:
     def __gt__(self, card):
         """
