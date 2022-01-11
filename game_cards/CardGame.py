@@ -18,6 +18,7 @@ class CardGame:
         self.player1 = Player(player1, num_of_cards)
         self.player2 = Player(player2, num_of_cards)
         self.num_of_cards = num_of_cards
+        self.deck = DeckOfCards()
         # Call the new_game method, and create a variable to activate the method only from __init__
         self.start_game = True
         self.new_game()
@@ -26,10 +27,9 @@ class CardGame:
     def new_game(self):
         """start the game by shuffling the deck of cards and hand out cards for each player"""
         if self.start_game:
-            deck = DeckOfCards()
-            deck.card_shuffle()
-            self.player1.set_hand(deck)
-            self.player2.set_hand(deck)
+            self.deck.card_shuffle()
+            self.player1.set_hand(self.deck)
+            self.player2.set_hand(self.deck)
             self.start_game = False
         else:
             print("Error, game already started, can't hand out cards again!")
@@ -42,3 +42,11 @@ class CardGame:
         elif len(self.player1.cards) < len(self.player2.cards):
             return self.player2
         return None
+
+
+cardgame = CardGame("Raz", "Itamar")
+print(cardgame.player1.cards)
+print(cardgame.player2.cards)
+print(cardgame.player2.get_card())
+print(len(cardgame.player1.cards))
+print(len(cardgame.player2.cards))
