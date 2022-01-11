@@ -51,6 +51,15 @@ class TestPlayer(TestCase):
         with self.assertRaises(TypeError):
             self.player2.set_hand('deck')
 
+    # Checks that set_hand method does not hand out the same card more than once to a player:
+    def test_set_hand_invalid_add_card_already_in(self):
+        with patch('DeckOfCards.DeckOfCards.deal_one') as mock_deal_one:
+            mock_deal_one.return_value = Card(1, 2)
+            deck = DeckOfCards()
+            self.player1.set_hand(deck)
+            self.assertEqual(self.player1.cards, [Card(1, 2)])
+            self.assertIn(mock_deal_one.return_value, self.player1.cards)
+
     # Checks that ValueError is raised when trying to set hand bigger than the used deck
     def test_set_hand_invalid_deck_len(self):
         self.deck_of_cards.deck = []

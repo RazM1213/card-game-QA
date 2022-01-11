@@ -32,7 +32,8 @@ class Player:
             raise ValueError("There's not enough cards in the deck to hand out to the player")
         for i in range(self.num_of_cards):
             card = deck_of_cards.deal_one()
-            self.cards.append(card)
+            if card not in self.cards:
+                self.cards.append(card)
 
     # Used to take card from Player's cards. Moreover, it removes the card from the player's hand
     def get_card(self):
