@@ -42,11 +42,3 @@ class CardGame:
         elif len(self.player1.cards) < len(self.player2.cards):
             return self.player2
         return None
-
-
-cardgame = CardGame("Raz", "Itamar")
-print(cardgame.player1.cards)
-print(cardgame.player2.cards)
-print(cardgame.player2.get_card())
-print(len(cardgame.player1.cards))
-print(len(cardgame.player2.cards))
