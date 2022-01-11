@@ -55,6 +55,9 @@ class Card:
         """
         if type(card) != Card:
             raise TypeError("card type must be of Card !")
+        if self.value == card.value and self.suit == card.suit:
+            raise ValueError("Can't compare card to itself !")
+        
         if self.value > card.value != 1:
             return True
         elif self.value == card.value:
